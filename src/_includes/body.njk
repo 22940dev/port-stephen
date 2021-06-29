@@ -2,12 +2,12 @@
 layout: main
 ---
 
-<main class="mx-auto max-w-7xl px-4 mt-2 lg:mt-14">
+<main class="">
     {% block content %}
         {{ content | safe }}
     {% endblock %}
-    <div class="m-10 text-sm text-right lg:float-right text-gray-200">
+    <div class="m-10 text-sm text-center text-light absolute bottom-0 w-screen">
         <div>Build Version: {% version %}</div>
-        <div>Build Time: {{ versionDate }}</div>
+        <div>Build Time: {% versionDate %}</div>
     </div>
 </main>

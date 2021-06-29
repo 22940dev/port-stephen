@@ -16,18 +16,51 @@ extraNav:
         url: '#'
         title: FAQ
         clickFunc: $store.modals.toggleModal('faq')
+contacts:
+    -   url: mailto:stephen.zappia@gmail.com
+        icon: fas fa-envelope
+    -   url: https://twitter.com/zapscribbles
+        icon: fab fa-twitter
 ---
+<div x-data="{ pageLoaded: false }"
+    x-init="$nextTick(() => { pageLoaded = true })"
+    class="mt-60 h-full w-full flex flex-col items-center justify-center"
+    >
+    {% set delayCounter = 1 %}
+    <h1 class=""
+        {% include "partials/delayed-fade-in.njk" %}{% set delayCounter = delayCounter + 3 %}
+        >Hey, I'm Stephen.</h1>
+
+    <h2 class=""
+        {% include "partials/delayed-fade-in.njk" %}{% set delayCounter = delayCounter + 3 %}
+        >Nice to meet you.</h2>
+
+    <div class="mt-40"
+        {% include "partials/delayed-fade-in.njk" %}{% set delayCounter = delayCounter + 3 %}
+        >
+        <h5>Shall we?</h5>
+        <div class="mt-4 flex items-center justify-around">
+            {% for contact in contacts %}
+                <a href="{{ contact.url }}" target="_blank" x-data="{ hover: false }" @mouseover="hover = !hover" @mouseout="hover = !hover" >
+                    <i class="{{ contact.icon }} text-3xl transition-all" :class="{ 'text-regularBlue': hover }"></i>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="h-80"></div>
 
 {# Modals #}
-<div x-data>
+{# <div x-data>
     {% set modalID = "faq" %}
     {% include "partials/modal.njk" %}
     {% set modalID = "help" %}
     {% include "partials/modal.njk" %}
-</div>
+</div> #}
 
-<div x-data="componentData" class="text-center m-20">
+{# <div x-data="componentData" class="text-center m-20">
     <span x-text="message"></span>
     {% set tooltipText = "This is a tooltip" %}
     {% include "partials/tooltip.njk" %}
-</div>
+</div> #}

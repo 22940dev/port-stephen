@@ -2,7 +2,7 @@
 title: Stephen Zappia
 js:
 fontAwesomeKitID: 1b38a6a882
-googleFontsURL: https://fonts.googleapis.com/css2?family=Newsreader&family=Zeyada&display=swap
+googleFontsImport: <style>@import url('https://fonts.googleapis.com/css2?family=Patua+One&family=Poppins&display=swap');</style>
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +19,7 @@ googleFontsURL: https://fonts.googleapis.com/css2?family=Newsreader&family=Zeyad
 
         <script src="https://kit.fontawesome.com/{{ fontAwesomeKitID }}.js" crossorigin="anonymous"></script>
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        {# <script defer src="https://unpkg.com/alpinejs@3.x.x/intersect/dist/cdn.min.js"></script> #}
         <script src="/common-js/bundle.js?v={% version %}"></script>
         <script src="/usefulFuncs.js"></script>
 
@@ -26,13 +27,14 @@ googleFontsURL: https://fonts.googleapis.com/css2?family=Newsreader&family=Zeyad
             <script src="{{ js }}?v={% version %}"></script>
         {% endif %}
 
-        <style>
-            @import url('{{ googleFontsURL }}');
-        </style>
+        {{ googleFontsImport | safe }}
 
     </head>
     <body>
         {# {% include "partials/header.njk" %} #}
+        <div class="absolute left-10 top-10 w-14 h-14">
+            <img src="/assets/logo.png"/>
+        </div>
 
         {% block content %}
             {{ content | safe }}
