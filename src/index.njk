@@ -2,24 +2,22 @@
 layout: body
 js: index.js
 eleventyNavigation:
-  key: Home
+    key: Home
 extraNav:
-  -
-    key: CustomNavFunction
-    url: '#'
-    title: Custom Nav Function
-    clickFunc: $store.navFunctions.customFunction()
-  -
-    key: HelpModal
-    url: '#'
-    title: Help
-    clickFunc: $store.modals.toggleModal('help')
-  -
-    key: FAQModal
-    url: '#'
-    title: FAQ
-    clickFunc: $store.modals.toggleModal('faq')
+    -   key: CustomNavFunction
+        url: '#'
+        title: Custom Nav Function
+        clickFunc: $store.navFunctions.customFunction()
+    -   key: HelpModal
+        url: '#'
+        title: Help
+        clickFunc: $store.modals.toggleModal('help')
+    -   key: FAQModal
+        url: '#'
+        title: FAQ
+        clickFunc: $store.modals.toggleModal('faq')
 ---
+
 {# Modals #}
 <div x-data>
     {% set modalID = "faq" %}
