@@ -30,11 +30,11 @@ h6 {
 }
 
 h1 {
-    @apply text-6xl my-4;
+    @apply lg:text-6xl text-4xl my-4;
 }
 
 h2 {
-    @apply text-5xl my-2;
+    @apply lg:text-5xl text-2xl my-2;
 }
 
 h5 {

@@ -24,19 +24,19 @@ contacts:
 ---
 <div x-data="{ pageLoaded: false }"
     x-init="$nextTick(() => { pageLoaded = true })"
-    class="mt-60 h-full w-full flex flex-col items-center justify-center"
+    class="mt-20 lg:mt-60 h-full w-full flex flex-col items-center justify-center"
     >
     {% set delayCounter = 1 %}
-    <h1 class=""
+    <h1 class="text-center"
         {% include "partials/delayed-fade-in.njk" %}{% set delayCounter = delayCounter + 3 %}
         >Hey, I'm Stephen.</h1>
 
-    <h2 class=""
-        {% include "partials/delayed-fade-in.njk" %}{% set delayCounter = delayCounter + 3 %}
+    <h2 class="text-center"
+        {% include "partials/delayed-fade-in.njk" %}{% set delayCounter = delayCounter + 8 %}
         >Nice to meet you.</h2>
 
-    <div class="mt-40"
-        {% include "partials/delayed-fade-in.njk" %}{% set delayCounter = delayCounter + 3 %}
+    <div class="lg:mt-40 mt-20 text-center"
+        {% include "partials/delayed-fade-in.njk" %}
         >
         <h5>Shall we?</h5>
         <div class="mt-4 flex items-center justify-around">
