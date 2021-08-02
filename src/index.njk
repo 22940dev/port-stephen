@@ -1,21 +1,6 @@
 ---
 layout: body
 js: index.js
-eleventyNavigation:
-    key: Home
-extraNav:
-    -   key: CustomNavFunction
-        url: '#'
-        title: Custom Nav Function
-        clickFunc: $store.navFunctions.customFunction()
-    -   key: HelpModal
-        url: '#'
-        title: Help
-        clickFunc: $store.modals.toggleModal('help')
-    -   key: FAQModal
-        url: '#'
-        title: FAQ
-        clickFunc: $store.modals.toggleModal('faq')
 contacts:
     -   url: mailto:stephen.zappia@gmail.com
         icon: fas fa-envelope
@@ -26,17 +11,21 @@ contacts:
     x-init="$nextTick(() => { pageLoaded = true })"
     class="mt-20 lg:mt-60 h-full w-full flex flex-col items-center justify-center"
     >
-    {% set delayCounter = 1 %}
+    {# Intro #}
+
     <h1 class="text-center"
-        {% include "partials/delayed-fade-in.njk" %}{% set delayCounter = delayCounter + 3 %}
+        {% set delayCounter = 1 %}{% include "partials/delayed-fade-in.njk" %}
         >Hey, I'm Stephen.</h1>
 
     <h2 class="text-center"
-        {% include "partials/delayed-fade-in.njk" %}{% set delayCounter = delayCounter + 8 %}
+        {% set delayCounter = delayCounter + 3 %}{% include "partials/delayed-fade-in.njk" %}
         >Nice to meet you.</h2>
 
+    {# Projects #}
+
+    {# Contact #}
     <div class="lg:mt-40 mt-20 text-center"
-        {% include "partials/delayed-fade-in.njk" %}
+        {% set delayCounter = delayCounter + 8 %}{% include "partials/delayed-fade-in.njk" %}
         >
         <h5>Shall we?</h5>
         <div class="mt-4 flex items-center justify-around">
