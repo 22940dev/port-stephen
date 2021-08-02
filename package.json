@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "kill-11ty": "pkill -f eleventy",
-        "start-dev": "browserify entry.js -o src/common-js/bundle.js & rimraf ./_site & ELEVENTY_PRODUCTION=false eleventy --serve & postcss src/styles/tailwind.css --o _tmp/style.css --watch",
-        "build-prod": "browserify entry.js -o src/common-js/bundle.js & rimraf ./_site & ELEVENTY_PRODUCTION=true eleventy & postcss src/styles/tailwind.css --o _site/css/style.css"
+        "start-dev": "browserify entry.js -o src/common-js/bundle.js & ELEVENTY_PRODUCTION=false eleventy --serve & postcss src/styles/tailwind.css --o _tmp/style.css --watch",
+        "build-prod": "browserify entry.js -o src/common-js/bundle.js & ELEVENTY_PRODUCTION=true eleventy & postcss src/styles/tailwind.css --o _site/css/style.css"
     },
     "repository": {
         "type": "git",
