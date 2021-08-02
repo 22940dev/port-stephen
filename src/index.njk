@@ -21,7 +21,7 @@ projects:
     {% set delayCounter = 1 %}{% include "partials/delayed-fade-in.njk" %}
         >Hey, I'm Stephen.</h1>
 
-    <div class='text-center lg:w-1/2 my-10' {% set delayCounter = delayCounter + 2 %}{% include "partials/delayed-fade-in.njk" %}>
+    <div class='text-center lg:w-1/2 my-5 lg:my-10' {% set delayCounter = delayCounter + 2 %}{% include "partials/delayed-fade-in.njk" %}>
         <div class=''>Some time ago, a pod sent from a dying alien world crashed here on Earth. </div>
         <div>Within the pod slept a small child with the potential to change the world with his innate abilities and natural talents.</div>
         <div class=''>But enough about me, how about that Superman ay. So intense.</div>
@@ -31,12 +31,12 @@ projects:
     {% set delayCounter = delayCounter + 2 %}{% include "partials/delayed-fade-in.njk" %}
         >Nice to meet you.</h2>
 
-    <div class="h-32"></div>
+    <div class="h-20 lg:h-32"></div>
 
     {# Projects #}
     <div class='self-start w-full' {% set delayCounter = delayCounter + 3 %}{% include "partials/delayed-fade-in.njk" %}>
-        <h3 class='text-center mb-10'>Here are some things I built with love and code:</h3>
-        <div class='flex flex-col lg:flex-row justify-center items-center gap-20 my-10 w-full'>
+        <h3 class='text-center mb-10'>Here are some things I built<br/>with love and code:</h3>
+        <div class='flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-20 my-10 w-full'>
         {% set descHeight = 12 %}
         {% set imgSize = 52 %}
         {% for project in projects %}
@@ -57,7 +57,7 @@ projects:
         </div>
     </div>
 
-<div class="h-32"></div>
+    <div class="h-20 lg:h-32"></div>
 
     {# Contact #}
     <div class="text-center"
