@@ -1,0 +1,7 @@
+<div class="mt-4 flex items-center justify-center gap-5">
+    {% for contact in contacts %}
+        <a href="{{ contact.url }}" target="_blank" x-data="{ hover: false }" @mouseover="hover = !hover" @mouseout="hover = !hover" >
+            <i class="{{ contact.icon }} text-3xl transition-all" :class="{ 'text-regularBlue': hover }"></i>
+        </a>
+    {% endfor %}
+</div>

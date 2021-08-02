@@ -1,55 +1,71 @@
 ---
 layout: body
 js: index.js
-contacts:
-    -   url: mailto:stephen.zappia@gmail.com
-        icon: fas fa-envelope
-    -   url: https://www.linkedin.com/in/stephen-zappia/
-        icon: fab fa-linkedin
+projects:
+    -   title: Project One
+        image: assets/placeholder.jpg
+        desc: Interior designer's website
+    -   title: Project Two
+        image: assets/placeholder.jpg
+        desc: Accountant's website
+    -   title: Project Three
+        image: assets/placeholder.jpg
+        desc: Graphic designer's website
 ---
 <div x-data="{ pageLoaded: false }"
     x-init="$nextTick(() => { pageLoaded = true })"
-    class="mt-20 lg:mt-60 h-full w-full flex flex-col items-center justify-center"
+    class="mt-10 lg:mt-40 mx-4 lg:mx-20 flex flex-col items-center justify-center"
     >
     {# Intro #}
-
     <h1 class="text-center"
-        {% set delayCounter = 1 %}{% include "partials/delayed-fade-in.njk" %}
+    {% set delayCounter = 1 %}{% include "partials/delayed-fade-in.njk" %}
         >Hey, I'm Stephen.</h1>
 
+    <div class='text-center lg:w-1/2 my-10' {% set delayCounter = delayCounter + 2 %}{% include "partials/delayed-fade-in.njk" %}>
+        <div class=''>Some time ago, a pod sent from a dying alien world crashed here on Earth. </div>
+        <div>Within the pod slept a small child with the potential to change the world with his innate abilities and natural talents.</div>
+        <div class=''>But enough about me, how about that Superman ay. So intense.</div>
+    </div>
+
     <h2 class="text-center"
-        {% set delayCounter = delayCounter + 3 %}{% include "partials/delayed-fade-in.njk" %}
+    {% set delayCounter = delayCounter + 2 %}{% include "partials/delayed-fade-in.njk" %}
         >Nice to meet you.</h2>
 
+    <div class="h-32"></div>
+
     {# Projects #}
+    <div class='self-start w-full' {% set delayCounter = delayCounter + 3 %}{% include "partials/delayed-fade-in.njk" %}>
+        <h3 class='text-center mb-10'>Here are some things I built with love and code:</h3>
+        <div class='flex flex-col lg:flex-row justify-center items-center gap-20 my-10 w-full'>
+        {% set descHeight = 12 %}
+        {% set imgSize = 52 %}
+        {% for project in projects %}
+            <div class='w-{{imgSize}}' {% set delayCounter = delayCounter + 1 %}{% include "partials/delayed-fade-in.njk" %}>
+                <div class='text-center mb-4 font-extrabold'>{{ project.title }}</div>
+                <div x-data="{ hovering: false }" class='text-darkBlue'
+                @mouseover="hovering = true" @mouseout="hovering = false"
+                @click="console.log(hovering)"
+                >
+                    <div class='text-center h-{{descHeight}} leading-1 px-2'>{{ project.desc }}</div>
+                    <img src="{{ project.image }}"
+                    class='transform transition duration-300 rounded-xl w-{{imgSize}} h-{{imgSize}} object-cover border-4 border-transparent'
+                    :class="{'-translate-y-{{descHeight}}': !hovering, 'translate-y-0 border-darkBlue shadow': hovering }"
+                    />
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+
+<div class="h-32"></div>
 
     {# Contact #}
-    <div class="lg:mt-40 mt-20 text-center"
+    <div class="text-center"
         {% set delayCounter = delayCounter + 8 %}{% include "partials/delayed-fade-in.njk" %}
         >
         <h5>Shall we?</h5>
-        <div class="mt-4 flex items-center justify-around">
-            {% for contact in contacts %}
-                <a href="{{ contact.url }}" target="_blank" x-data="{ hover: false }" @mouseover="hover = !hover" @mouseout="hover = !hover" >
-                    <i class="{{ contact.icon }} text-3xl transition-all" :class="{ 'text-regularBlue': hover }"></i>
-                </a>
-            {% endfor %}
-        </div>
+        {% include "partials/contact-links.njk" %}
     </div>
 </div>
 
 <div class="h-80"></div>
-
-{# Modals #}
-{# <div x-data>
-    {% set modalID = "faq" %}
-    {% include "partials/modal.njk" %}
-    {% set modalID = "help" %}
-    {% include "partials/modal.njk" %}
-</div> #}
-
-{# <div x-data="componentData" class="text-center m-20">
-    <span x-text="message"></span>
-    {% set tooltipText = "This is a tooltip" %}
-    {% include "partials/tooltip.njk" %}
-</div> #}
